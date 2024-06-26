@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.10)
 set(PROJECT_NAME "flutter_webrtc")
 project(${PROJECT_NAME} LANGUAGES CXX)
 
+set("OpenCV_DIR" "/mnt/dev/opencv_build/opencv/build/")
+find_package(OpenCV REQUIRED)
 set(PLUGIN_NAME "${PROJECT_NAME}_plugin")
 set (CMAKE_EXPORT_COMPILE_COMMANDS ON )
 set(CMAKE_CXX_STANDARD 17)
@@ -33,6 +35,7 @@ include_directories(
   "${CMAKE_CURRENT_SOURCE_DIR}/../third_party/uuidxx"
   "${CMAKE_CURRENT_SOURCE_DIR}/../third_party/libwebrtc/include"
   "${CMAKE_CURRENT_SOURCE_DIR}/../third_party/svpng"
+   ${OpenCV_INCLUDE_DIRS}
 )
 
 apply_standard_settings(${PLUGIN_NAME})
@@ -43,6 +46,7 @@ target_include_directories(${PLUGIN_NAME} INTERFACE
 "${CMAKE_CURRENT_SOURCE_DIR}/../common/cpp/include")
 target_link_libraries(${PLUGIN_NAME} PRIVATE flutter)
 target_link_libraries(${PLUGIN_NAME} PRIVATE PkgConfig::GTK)
+target_link_libraries(${PLUGIN_NAME} PRIVATE ${OpenCV_LIBS})
 
 
 target_link_libraries(${PLUGIN_NAME} PRIVATE 

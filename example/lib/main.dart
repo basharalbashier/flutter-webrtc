@@ -68,16 +68,18 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          appBar: AppBar(
-            title: Text('Flutter-WebRTC example'),
+          // appBar: AppBar(
+          //   title: Text('Flutter-WebRTC example'),
+          // ),
+          body: GetUserMediaSample()
+          // ListView.builder(
+          //     shrinkWrap: true,
+          //     padding: const EdgeInsets.all(0.0),
+          //     itemCount: items.length,
+          //     itemBuilder: (context, i) {
+          //       return _buildRow(context, items[i]);
+          //     })
           ),
-          body: ListView.builder(
-              shrinkWrap: true,
-              padding: const EdgeInsets.all(0.0),
-              itemCount: items.length,
-              itemBuilder: (context, i) {
-                return _buildRow(context, items[i]);
-              })),
     );
   }
 
