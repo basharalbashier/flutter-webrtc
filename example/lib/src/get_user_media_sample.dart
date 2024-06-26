@@ -35,6 +35,7 @@ class _GetUserMediaSampleState extends State<GetUserMediaSample> {
       print('++++++ ondevicechange ++++++');
       _mediaDevicesList = await navigator.mediaDevices.enumerateDevices();
     };
+    _makeCall();
   }
 
   @override
@@ -243,7 +244,7 @@ class _GetUserMediaSampleState extends State<GetUserMediaSample> {
                   setZoom(details.scale);
                 }
               },
-              child: RTCVideoView(_localRenderer, mirror: true),
+              child: RTCVideoView(_localRenderer),
             ),
           ));
         },

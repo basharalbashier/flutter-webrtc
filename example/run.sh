@@ -16,8 +16,8 @@ compile() {
 }
 run_flutter() {
     echo "${UNDERLINE}${BOLD}${BLUE}Cleaning and Running flutter${RESET}.."
-    rm -rf build/
-    flutter clean && flutter pub get && flutter run -d linux -v
+    # rm -rf build/
+    flutter clean && flutter pub get && flutter run -d linux
 }
 
 cd ../../libwebrtc_b/src/libwebrtc/ && pwd
